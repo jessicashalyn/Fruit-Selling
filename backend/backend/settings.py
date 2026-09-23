@@ -40,7 +40,7 @@ OTP_EXPIRY_MINUTES = 5
 OTP_MAX_ATTEMPTS = 3
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'True') == 'True'
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '*').split(',')
 
@@ -102,6 +102,7 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# pyrefly: ignore [missing-import]
 import dj_database_url
 
 DATABASES = {
