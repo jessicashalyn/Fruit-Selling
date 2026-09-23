@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Vibrant, curated fruit colors */
+  --primary-color: #ff6b6b; /* Watermelon red */
+  --primary-light: #ff9e9e;
+  --secondary-color: #4ecdc4; /* Fresh mint */
+  --accent-color: #ffe66d; /* Lemon yellow */
+  
+  /* Neutral scale */
+  --bg-color: #f7f9fa;
+  --surface-color: #ffffff;
+  --text-main: #2d3436;
+  --text-muted: #636e72;
+  --border-color: #dfe6e9;
+  
+  /* Gradients and shadows */
+  --gradient-primary: linear-gradient(135deg, #ff6b6b, #ff8e8b);
+  --gradient-fresh: linear-gradient(135deg, #4ecdc4, #55efc4);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+  --shadow-md: 0 8px 24px rgba(255, 107, 107, 0.15);
+  --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+  
+  /* Border radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 9999px;
+  
+  /* Animations */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.5;
+  /* Mobile constraint wrapper behavior */
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+  max-width: 480px; /* Constrain to mobile width on desktop */
+  background: var(--surface-color);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  box-shadow: var(--shadow-glass);
+}
+
+/* Typography utilities */
+h1, h2, h3, h4 { font-weight: 700; line-height: 1.2; }
+.text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animations */
+@keyframes slideUpFade {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.animate-slide-up {
+  animation: slideUpFade var(--transition-smooth) forwards;
+}
+
+/* Glassmorphism utils */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Buttons */
+.btn-primary {
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 16px 24px;
+  font-weight: 600;
+  font-size: 1rem;
+  width: 100%;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  border-radius: var(--radius-pill);
+  padding: 14px 24px;
+  font-weight: 600;
+  width: 100%;
+  cursor: pointer;
+}
